@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="s1" class="com.bambooJohn.spring.di.Student">
+		<property name="id" value="10011"></property>
+		<property name="name" value="小明"></property>
+		<property name="age" value="22"></property>
+		<property name="sex" value="男"></property>
+	</bean>
+
+	<bean id="s2" class="com.bambooJohn.spring.di.Student">
+		<constructor-arg value="10012"></constructor-arg>
+		<constructor-arg value="小红"></constructor-arg>
+		<constructor-arg value="25"></constructor-arg>
+		<constructor-arg value="女"></constructor-arg>
+	</bean>
+
+	<bean id="s3" class="com.bambooJohn.spring.di.Student">
+		<constructor-arg value="10013"></constructor-arg>
+		<constructor-arg value="小蓝"></constructor-arg>
+		<constructor-arg value="28" index="2" type="java.lang.Double"></constructor-arg>
+		<constructor-arg value="女"></constructor-arg>
+	</bean>
+
+</beans>
