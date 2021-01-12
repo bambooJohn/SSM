@@ -25,6 +25,20 @@
 		<constructor-arg value="女"></constructor-arg>
 	</bean>
 	
-	<bean id="s4" class="com.bambooJohn.spring.di.Student" p:id="10022" p:name="小白" p:age="30" p:sex="男"></bean>
+	<bean id="s4" class="com.bambooJohn.spring.di.Student" p:id="10022" p:name="小白" p:age="30" p:sex="男" p:teacher-ref="teacher"></bean>
+
+	<bean id="s5" class="com.bambooJohn.spring.di.Student">
+		<property name="id" value="10015"></property>
+		<property name="name" value="小白"></property>
+		<property name="age" value="27"></property>
+		<property name="sex" value="男"></property>
+		<property name="teacher" ref="teacher"></property>
+		<property name="teacher.tname" value="孟子"></property>
+	</bean>
+
+	<bean id="teacher" class="com.bambooJohn.spring.di.Teacher">
+		<property name="tid" value="10055"></property>
+		<property name="tname" value="孔子"></property>
+	</bean>
 
 </beans>

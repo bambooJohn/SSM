@@ -11,6 +11,8 @@ public class Student {
 	private String sex;
 	
 	private Double score;
+	
+	private Teacher teacher;
 
 	public Student() {
 		super();
@@ -66,9 +68,28 @@ public class Student {
 		this.sex = sex;
 	}
 
+	
+	
+	public Double getScore() {
+		return score;
+	}
+
+	public void setScore(Double score) {
+		this.score = score;
+	}
+
+	public Teacher getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(Teacher teacher) {
+		this.teacher = teacher;
+	}
+
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", sex=" + sex + ", score=" + score + "]";
+		return "Student [id=" + id + ", name=" + name + ", age=" + age + ", sex=" + sex + ", score=" + score
+				+ ", teacher=" + teacher + "]";
 	}
 	
 	
