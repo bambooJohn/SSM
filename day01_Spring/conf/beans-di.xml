@@ -40,5 +40,73 @@
 		<property name="tid" value="10055"></property>
 		<property name="tname" value="孔子"></property>
 	</bean>
+	
+	<bean id="s6" class="com.bambooJohn.spring.di.Student">
+		<property name="id" value="10016"></property>
+		<property name="name" value="小白"></property>
+		<property name="age" value="27"></property>
+		<property name="sex" value="男"></property>
+		<property name="teacher">
+			<bean id="tt" class="com.bambooJohn.spring.di.Teacher">
+				<property name="tid" value="10066"></property>
+				<property name="tname" value="韩非子"></property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- 定义在某个bean内部的bean，只能在当前bean中使用 -->
+	<!-- <bean id="s7" class="com.bambooJohn.spring.di.Student">
+		<property name="id" value="10017"></property>
+		<property name="name" value="小白"></property>
+		<property name="age" value="27"></property>
+		<property name="sex" value="男"></property>
+		<property name="teacher" ref="tt"></property>
+	</bean> -->
+
+	<bean id="t1" class="com.bambooJohn.spring.di.Teacher">
+		<property name="tid" value="10001"></property>
+		<property name="tname" value="钟南山"></property>
+		<property name="cls">
+			<list>
+				<value>A</value>
+				<value>B</value>
+				<value>C</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="t2" class="com.bambooJohn.spring.di.Teacher">
+		<property name="tid" value="10002"></property>
+		<property name="tname" value="李兰娟"></property>
+		<property name="students">
+			<list>
+				<ref bean="s1"/>
+				<ref bean="s2"/>
+				<ref bean="s3"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="t3" class="com.bambooJohn.spring.di.Teacher">
+		<property name="tid" value="10003"></property>
+		<property name="tname" value="高福"></property>
+		<property name="bossMap">
+			<map>
+				<entry>
+					<key>
+						<value>10001</value>
+					</key>
+					<value>王健林</value>
+				</entry>
+				<entry>
+					<key>
+						<value>10002</value>
+					</key>
+					<value>马化腾</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
 
 </beans>
