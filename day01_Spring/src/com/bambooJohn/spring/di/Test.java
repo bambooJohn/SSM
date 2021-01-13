@@ -27,6 +27,8 @@ public class Test {
 		System.out.println(t2);
 		Teacher t3 = ac.getBean("t3", Teacher.class);
 		System.out.println(t3);
+		Teacher t4 = ac.getBean("t4", Teacher.class);
+		System.out.println(t4);
 	}
 
 }

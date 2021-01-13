@@ -2,7 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<bean id="s1" class="com.bambooJohn.spring.di.Student">
 		<property name="id" value="10011"></property>
@@ -108,5 +110,31 @@
 		</property>
 	</bean>
 
+	<bean id="t4" class="com.bambooJohn.spring.di.Teacher">
+		<property name="tid" value="10002"></property>
+		<property name="tname" value="李兰娟"></property>
+		<property name="students" ref="students"></property>
+	</bean>
+
+	<util:list id="students">
+		<ref bean="s4"/>
+		<ref bean="s5"/>
+		<ref bean="s6"/>
+	</util:list>
+
+	<util:map id="map">
+		<entry>
+			<key>
+				<value>1</value>
+			</key>
+			<value>张三</value>
+		</entry>
+		<entry>
+			<key>
+				<value>2</value>
+			</key>
+			<value>李四</value>
+		</entry>
+	</util:map>
 
 </beans>
