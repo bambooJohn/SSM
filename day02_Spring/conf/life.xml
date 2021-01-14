@@ -9,4 +9,6 @@
 		<property name="name" value="王五"></property>
 	</bean>
 
+	<bean class="com.bambooJohn.ioc.life.AfterHandler"></bean>
+
 </beans>
