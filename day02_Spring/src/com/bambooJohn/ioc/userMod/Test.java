@@ -18,7 +18,7 @@ public class Test {
 		System.out.println(userServiceImpl);
 		UserDaoImpl userDaoImpl = ac.getBean("userDaoImpl", UserDaoImpl.class);
 		System.out.println(userDaoImpl);
-		
+		userController.addUser();
 	}
 
 }
