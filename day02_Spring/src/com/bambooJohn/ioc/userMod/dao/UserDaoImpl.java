@@ -8,7 +8,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void addUser() {
 		// TODO Auto-generated method stub
-		System.out.println("添加成功");
+		System.out.println("userDaoImpl:添加成功");
 	}
 	
 	public UserDaoImpl() {

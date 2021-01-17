@@ -1,6 +1,7 @@
 package com.bambooJohn.ioc.userMod.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.bambooJohn.ioc.userMod.dao.UserDao;
@@ -9,6 +10,7 @@ import com.bambooJohn.ioc.userMod.dao.UserDao;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
+	@Qualifier("userDaoMybatisImpl")
 	private UserDao userDao;
 	
 	@Override

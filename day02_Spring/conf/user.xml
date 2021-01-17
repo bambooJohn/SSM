@@ -26,4 +26,9 @@
 		<context:include-filter type="assignable" expression="com.bambooJohn.ioc.userMod.service.UserServiceImpl"/>
 	</context:component-scan> -->
 
+	<!-- <bean id="userController" class="com.bambooJohn.ioc.userMod.controller.UserController"></bean>
+	<bean id="userService" class="com.bambooJohn.ioc.userMod.service.UserServiceImpl"></bean>
+	<bean id="userDao" class="com.bambooJohn.ioc.userMod.dao.UserDaoImpl"></bean> -->
+	<!-- <bean id="userDao1" class="com.bambooJohn.ioc.userMod.dao.UserDaoImpl"></bean> -->
+
 </beans>
