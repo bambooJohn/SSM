@@ -10,7 +10,7 @@ import com.bambooJohn.ioc.userMod.dao.UserDao;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	@Qualifier("userDaoMybatisImpl")
+	/*@Qualifier("userDaoMybatisImpl")*/
 	private UserDao userDao;
 	
 	@Override
