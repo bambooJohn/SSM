@@ -6,12 +6,9 @@ public class Test {
 		// TODO Auto-generated method stub
 
 		MathImpl mathImpl = new MathImpl();
-		int i = 2;
-		int j = 3;
-		System.out.println("i+j:" + mathImpl.add(i, j));
 		
-		MathI proxyInstance = (MathI)new ProxyFactory(mathImpl).getProxyInstance();
-		proxyInstance.mul(i, j);
+		MathI proxyInstance = (MathI)new ProxyUtil(mathImpl).getProxyInstance();
+		proxyInstance.div(4, 1);
 	}
 
 }
