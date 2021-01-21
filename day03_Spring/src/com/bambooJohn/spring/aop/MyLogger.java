@@ -3,9 +3,11 @@ package com.bambooJohn.spring.aop;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -59,9 +61,36 @@ public class MyLogger {
 	}
 	
 	
+	/*
+	 * @AfterThrowing:将方法标注为异常通知（例外通知）
+	 * 异常通知（例外通知）：作用于方法抛出异常时
+	 * 可通过throwing设置接收方法返回的异常信息
+	 * 在参数列表中可通过具体的异常类型，来对指定的异常信息进行操作
+	 * 
+	 */
 	@AfterThrowing(value="execution(* com.bambooJohn.spring.aop.*.*(..))",throwing="ex")
 	public void afterThrowing(ArithmeticException ex) {
 		System.out.println("有异常了。。。message:" + ex);
+	}
+	
+	@Around(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	public Object aroundMethod(ProceedingJoinPoint joinPoint) {
+		
+		Object result = null;
+		
+		try {
+			System.out.println("前置通知");
+			result = joinPoint.proceed();
+			System.out.println("返回通知");
+			return result;
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("异常通知");
+		} finally {
+			System.out.println("后置通知");
+		}
+		return -1;
 	}
 	
 }
