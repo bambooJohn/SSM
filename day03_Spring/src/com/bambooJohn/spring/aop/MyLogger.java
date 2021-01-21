@@ -14,6 +14,12 @@ public class MyLogger {
 	/*
 	 * @Before:将方法指定为前置通知
 	 * 必须设置value，其值为切入点表达式
+	 * @Before(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	 * 第一个*代表任意的访问修饰符和返回值类型
+	 * 第二个*代表任意类
+	 * 第三个*代表类中的任意方法
+	 * ..代表任意的参数列表
+	 * 
 	 */
 	//@Before(value="execution(public int com.bambooJohn.spring.aop.MathImpl.add(int, int))")
 	@Before(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
