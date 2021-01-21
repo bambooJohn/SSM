@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -38,4 +39,22 @@ public class MyLogger {
 	public void afterMethod() {
 		System.out.println("后置通知");
 	}
+	
+	
+	/**
+	 * @AfterReturning:将方法标注为返回通知
+	 * 返回通知：作用于方法执行之后
+	 * 可通过returning设置接收方法返回值的变量名
+	 * 要想在方法中使用，必须在方法的形参中设置和变量名相同的参数名的参数
+	 * @param joinPoint
+	 * @param result
+	 */
+	@AfterReturning(value="execution(* com.bambooJohn.spring.aop.*.*(..))",returning="result")
+	public void afterReturning(JoinPoint joinPoint,Object result) {
+		String methodName = joinPoint.getSignature().getName();
+		Object[] args = joinPoint.getArgs();
+		System.out.println("method:" + methodName + ",args:" + Arrays.toString(args));
+		System.out.println("result:" + result);
+	}
+	
 }
