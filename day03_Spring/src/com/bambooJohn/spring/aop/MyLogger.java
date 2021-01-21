@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -55,6 +56,12 @@ public class MyLogger {
 		Object[] args = joinPoint.getArgs();
 		System.out.println("method:" + methodName + ",args:" + Arrays.toString(args));
 		System.out.println("result:" + result);
+	}
+	
+	
+	@AfterThrowing(value="execution(* com.bambooJohn.spring.aop.*.*(..))",throwing="ex")
+	public void afterThrowing(ArithmeticException ex) {
+		System.out.println("有异常了。。。message:" + ex);
 	}
 	
 }
