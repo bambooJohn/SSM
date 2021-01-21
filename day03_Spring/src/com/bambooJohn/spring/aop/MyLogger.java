@@ -1,5 +1,8 @@
 package com.bambooJohn.spring.aop;
 
+import java.util.Arrays;
+
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -13,8 +16,10 @@ public class MyLogger {
 	 * 必须设置value，其值为切入点表达式
 	 */
 	@Before(value="execution(public int com.bambooJohn.spring.aop.MathImpl.add(int, int))")
-	public void beforeMethod() {
-		System.out.println("方法执行之前");
+	public void beforeMethod(JoinPoint joinPoint) {
+		Object[] args = joinPoint.getArgs();//获取方法参数
+		String methodName = joinPoint.getSignature().getName();//获取方法名
+		System.out.println("methid:" + methodName + ",arguments:" + Arrays.toString(args));
 	}
 	
 }
