@@ -12,6 +12,9 @@ public class Test {
 		MathI mathI = ac.getBean("mathImpl", MathI.class);
 		int result = mathI.add(1, 2);
 		System.out.println(result);
+		
+		TestHandler testHandler = ac.getBean("testHandler",TestHandler.class);
+		testHandler.test();
 	}
 
 }
