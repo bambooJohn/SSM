@@ -3,6 +3,7 @@ package com.bambooJohn.spring.aop;
 import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -29,4 +30,12 @@ public class MyLogger {
 		System.out.println("methid:" + methodName + ",arguments:" + Arrays.toString(args));
 	}
 	
+	/*
+	 * @After:将方法标注为后置通知
+	 * 后置通知：作用于方法的finally语句块，即不管有没有异常都会执行
+	 */
+	@After(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	public void afterMethod() {
+		System.out.println("后置通知");
+	}
 }

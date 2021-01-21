@@ -10,11 +10,9 @@ public class Test {
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("aop.xml");
 		MathI mathI = ac.getBean("mathImpl", MathI.class);
-		int result = mathI.add(1, 2);
+		int result = mathI.div(1, 0);
 		System.out.println(result);
 		
-		TestHandler testHandler = ac.getBean("testHandler",TestHandler.class);
-		testHandler.test();
 	}
 
 }
