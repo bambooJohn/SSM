@@ -10,12 +10,20 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 @Component
 @Aspect // 标注当前类为前面
+@Order(1) // 定义切面作用的优先级，值越小优先级越高，默认值为int的最大值
 public class MyLogger {
 
+	@Pointcut(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	public void test() {
+		
+	}
+	
 	/*
 	 * @Before:将方法指定为前置通知
 	 * 必须设置value，其值为切入点表达式
@@ -27,7 +35,8 @@ public class MyLogger {
 	 * 
 	 */
 	//@Before(value="execution(public int com.bambooJohn.spring.aop.MathImpl.add(int, int))")
-	@Before(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	//@Before(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	@Before(value="test()")
 	public void beforeMethod(JoinPoint joinPoint) {
 		Object[] args = joinPoint.getArgs();//获取方法参数
 		String methodName = joinPoint.getSignature().getName();//获取方法名
@@ -38,7 +47,8 @@ public class MyLogger {
 	 * @After:将方法标注为后置通知
 	 * 后置通知：作用于方法的finally语句块，即不管有没有异常都会执行
 	 */
-	@After(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	//@After(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	@After(value="test()")
 	public void afterMethod() {
 		System.out.println("后置通知");
 	}
@@ -52,7 +62,8 @@ public class MyLogger {
 	 * @param joinPoint
 	 * @param result
 	 */
-	@AfterReturning(value="execution(* com.bambooJohn.spring.aop.*.*(..))",returning="result")
+	//@AfterReturning(value="execution(* com.bambooJohn.spring.aop.*.*(..))",returning="result")
+	@AfterReturning(value="test()",returning="result")
 	public void afterReturning(JoinPoint joinPoint,Object result) {
 		String methodName = joinPoint.getSignature().getName();
 		Object[] args = joinPoint.getArgs();
@@ -68,12 +79,13 @@ public class MyLogger {
 	 * 在参数列表中可通过具体的异常类型，来对指定的异常信息进行操作
 	 * 
 	 */
-	@AfterThrowing(value="execution(* com.bambooJohn.spring.aop.*.*(..))",throwing="ex")
+	//@AfterThrowing(value="execution(* com.bambooJohn.spring.aop.*.*(..))",throwing="ex")
+	@AfterThrowing(value="test()",throwing="ex")
 	public void afterThrowing(ArithmeticException ex) {
 		System.out.println("有异常了。。。message:" + ex);
 	}
 	
-	@Around(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
+	/*@Around(value="execution(* com.bambooJohn.spring.aop.*.*(..))")
 	public Object aroundMethod(ProceedingJoinPoint joinPoint) {
 		
 		Object result = null;
@@ -91,6 +103,6 @@ public class MyLogger {
 			System.out.println("后置通知");
 		}
 		return -1;
-	}
+	}*/
 	
 }

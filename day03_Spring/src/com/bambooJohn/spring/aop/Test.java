@@ -10,6 +10,7 @@ public class Test {
 
 		ApplicationContext ac = new ClassPathXmlApplicationContext("aop.xml");
 		MathI mathI = ac.getBean("mathImpl", MathI.class);
+		System.out.println(mathI.getClass().getName());
 		int result = mathI.div(4, 1);
 		System.out.println(result);
 		
