@@ -61,4 +61,15 @@ public class TestJdbcTemplate {
 		System.out.println(count);
 	}
 	
+	@Test
+	public void testQuery() {
+		String sql = "select eid,ename,age,sex from emp";
+		RowMapper<Emp> rowMapper = new BeanPropertyRowMapper<>(Emp.class);
+		List<Emp> list = jdbcTemplate.query(sql, rowMapper);
+		for(Emp emp : list) {
+			System.out.println(emp);
+		}
+		
+	}
+	
 }
