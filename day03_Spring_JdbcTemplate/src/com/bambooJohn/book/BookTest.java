@@ -16,8 +16,9 @@ public class BookTest {
 		
 		BookController bookController = ac.getBean("bookController", BookController.class);
 		
-		bookController.buyBook();
-		
+		//bookController.buyBook();
+		bookController.checkOut();
+
 	}
 	
 }
