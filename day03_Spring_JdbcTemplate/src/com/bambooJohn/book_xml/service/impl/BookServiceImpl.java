@@ -1,4 +1,4 @@
-package com.bambooJohn.book.service.impl;
+package com.bambooJohn.book_xml.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class BookServiceImpl implements BookService {
 	 * rollbackFor|rollbackForClassName|noRollbackFor|noRollbackForCLassName：设置事务回滚条件
 	 * 
 	 */
-	@Transactional(propagation=Propagation.REQUIRES_NEW)
+	
 	@Override
 	public void buyBook(String bid, String uid) {
 		// TODO Auto-generated method stub
