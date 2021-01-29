@@ -14,10 +14,14 @@ public class TestController {
 	 * 请求方式：GET 查询  POST 添加 PUT 修改 DELETE 删除
 	 * params:用来设置客户端传到服务器端的数据，支持表达式
 	 * username !username  username=admin  username != admin
-	 * 
+	 * headers:用来设置请求头信息，所发送的请求的请求头信息一定要和headers属性中所设置的一致
 	 * @return
 	 */
-	@RequestMapping(value="/test",method=RequestMethod.GET,params= {"username","age!=12"})
+	@RequestMapping(value="/test"
+			,method=RequestMethod.GET
+			/*,params= {"username","age!=12"}*/
+			,headers= {"Accept-Language=zh-CN,zh;q=0.9,en;q=0.8"}
+	)
 	public String testGet() {
 		
 		System.out.println("SUCCESS:GET");
