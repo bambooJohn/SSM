@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/mvc")
+//@RequestMapping("/mvc")
 public class TestController {
 
 	/**
@@ -35,10 +35,28 @@ public class TestController {
 		
 	}
 	
+	
 	@RequestMapping(value="/test",method=RequestMethod.POST)
 	public String testPost() {
 		
 		System.out.println("SUCCESS:POST");
+		
+		return "success";
+		
+	}
+	
+	/**
+	 * springMVC支持Ant方式的请求路径
+	 * 在Ant中，有3中匹配符
+	 * *:任意字符 （/* 一层目录,*可由任意字符或任意个字符组成）
+	 * ?:任意一个字符 (如下例：/ant??  ant后面可以接任意两个字符组成一层)
+	 * **:任意多层目录 （/** 可以为/a/b或者/aa/bb等等）
+	 * 
+	 */
+	@RequestMapping(value="/*/ant??/**/testAnt")
+	public String testAnt() {
+		
+		System.out.println("SUCCESS:testAnt");
 		
 		return "success";
 		
