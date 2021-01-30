@@ -63,7 +63,14 @@ public class TestController {
 		
 	}
 	
-	
+	/**
+	 * 以前：localhost:8080/springMVC02/testREST?id=1001&username=wangwu
+	 * 现在：localhost:8080/springMVC02/testREST/1001/wangwu
+	 * 
+	 * @param id
+	 * @param username
+	 * @return
+	 */
 	@RequestMapping(value="/testREST/{id}/{username}")
 	public String testREST(@PathVariable("id") Integer id,@PathVariable("username") String username) {
 		
