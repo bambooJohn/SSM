@@ -1,6 +1,8 @@
 package com.bambooJohn.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,10 +21,31 @@ public class ParamController {
 	 * @param age
 	 * @return
 	 */
-	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
 	public String testParam(@RequestParam(value="name",required=false,defaultValue="admin")String username,String password,Integer age) {
 		
 		System.out.println("username=" + username + ", password=" + password + ", age=" + age);
+		return "success";
+	}*/
+	
+	
+	/*
+	 * @RequestHeader:在处理请求的方法上，获取请求头信息，用法和@RequestParam一致
+	 */
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public String testParam(@RequestHeader("Accept-Language") String acceptLanguage) {
+		
+		System.out.println("AcceptLanguage=" + acceptLanguage);
+		return "success";
+	}*/
+	
+	/*
+	 * @@CookieValue:在处理请求的方法上，获取cookie信息，用法和@RequestParam一致
+	 */
+	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public String testParam(@CookieValue("JSESSIONID") String JSESSIONID) {
+		
+		System.out.println("JSESSIONID=" + JSESSIONID);
 		return "success";
 	}
 	
