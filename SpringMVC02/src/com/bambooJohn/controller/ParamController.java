@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bambooJohn.bean.User;
+
 @Controller
 public class ParamController {
 
@@ -42,10 +44,23 @@ public class ParamController {
 	/*
 	 * @@CookieValue:在处理请求的方法上，获取cookie信息，用法和@RequestParam一致
 	 */
-	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
 	public String testParam(@CookieValue("JSESSIONID") String JSESSIONID) {
 		
 		System.out.println("JSESSIONID=" + JSESSIONID);
+		return "success";
+	}*/
+	
+	
+	/**
+	 * 可以使用POJO获取客户端数据，要求实体类对象中的属性一定要和页面表单中元素的name属性值一致，且支持级联关系
+	 * @param user
+	 * @return
+	 */
+	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public String param(User user) {
+		System.out.println(user);
+		
 		return "success";
 	}
 	

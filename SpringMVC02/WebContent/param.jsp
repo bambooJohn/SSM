@@ -9,12 +9,12 @@
 <body>
 
 	<form action="testParam" method="POST">
-		<!-- username:<input type="text" name="name"/><br> -->
+		username:<input type="text" name="name"/><br>
 		password:<input type="text" name="password"/><br>
 		age:<input type="text" name="age"/><br>
-		province:<input type="text" name="province"/><br>
-		city:<input type="text" name="city"/><br>
-		country:<input type="text" name="country"/><br>
+		province:<input type="text" name="address.province"/><br>
+		city:<input type="text" name="address.city"/><br>
+		country:<input type="text" name="address.country"/><br>
 		<input type="submit" name="提交"/><br>
 	</form>
 
