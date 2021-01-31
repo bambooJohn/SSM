@@ -1,5 +1,8 @@
 package com.bambooJohn.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -54,13 +57,15 @@ public class ParamController {
 	
 	/**
 	 * 可以使用POJO获取客户端数据，要求实体类对象中的属性一定要和页面表单中元素的name属性值一致，且支持级联关系
+	 * 可以通过设置形参的方式，获取servletAPI
 	 * @param user
 	 * @return
 	 */
 	@RequestMapping(value="/testParam",method=RequestMethod.POST)
-	public String param(User user) {
+	public String param(User user,HttpServletRequest request,HttpServletResponse response) {
 		System.out.println(user);
-		
+		String username = (String) request.getParameter("username");
+		System.out.println("username=" + username);
 		return "success";
 	}
 	

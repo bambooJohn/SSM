@@ -9,7 +9,7 @@
 <body>
 
 	<form action="testParam" method="POST">
-		username:<input type="text" name="name"/><br>
+		username:<input type="text" name="username"/><br>
 		password:<input type="text" name="password"/><br>
 		age:<input type="text" name="age"/><br>
 		province:<input type="text" name="address.province"/><br>
