@@ -10,6 +10,6 @@
 
 	<h1>成功</h1>
 	<br>
-	${username}
+	${requestScope.username}
 </body>
 </html>

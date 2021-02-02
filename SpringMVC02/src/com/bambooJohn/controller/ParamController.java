@@ -1,9 +1,12 @@
 package com.bambooJohn.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bambooJohn.bean.User;
+
 
 @Controller
 public class ParamController {
@@ -70,13 +74,31 @@ public class ParamController {
 		return "success";
 	}*/
 	
-	
-	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	/**
+	 * springMVC处理请求过程中，往作用域中放置有以下三种方式
+	 * 总结：根据ModelAndView源码调试，不管使用以下哪种方式，最终都会把mdel数据和view数据封装到一个ModelAndView中
+	 * @param model
+	 * @return
+	 */
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
 	public ModelAndView param() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("username", "root"); // 往request作用域中放值
 		mav.setViewName("success"); // 设置视图名称，实现页面跳转
 		return mav;
-	}
+	}*/
 	
+	
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public String param(Map<String,Object> map) {
+		map.put("username", "admin");
+		return "success";
+	}*/
+	
+	
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public String param(Model model) {
+		model.addAttribute("username", "admin");
+		return "success";
+	}*/
 }
