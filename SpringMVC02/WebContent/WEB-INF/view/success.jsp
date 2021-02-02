@@ -9,6 +9,7 @@
 <body>
 
 	<h1>成功</h1>
-
+	<br>
+	${username}
 </body>
 </html>

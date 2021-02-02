@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.bambooJohn.bean.User;
 
@@ -61,12 +62,21 @@ public class ParamController {
 	 * @param user
 	 * @return
 	 */
-	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	/*@RequestMapping(value="/testParam",method=RequestMethod.POST)
 	public String param(User user,HttpServletRequest request,HttpServletResponse response) {
 		System.out.println(user);
 		String username = (String) request.getParameter("username");
 		System.out.println("username=" + username);
 		return "success";
+	}*/
+	
+	
+	@RequestMapping(value="/testParam",method=RequestMethod.POST)
+	public ModelAndView param() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("username", "root"); // 往request作用域中放值
+		mav.setViewName("success"); // 设置视图名称，实现页面跳转
+		return mav;
 	}
 	
 }
