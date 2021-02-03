@@ -2,6 +2,7 @@ package com.bambooJohn.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class TestController {
@@ -15,11 +16,11 @@ public class TestController {
 	 * 
 	 * @return
 	 */
-	@RequestMapping("/test")
-	public String test() {
-		
-		//return "success";
-		return "redirect:/index.jsp";
+	@RequestMapping(value="/test",method=RequestMethod.POST)
+	public String test(String username) {
+		System.out.println(username);
+		return "success";
+		//return "redirect:/index.jsp";
 	} 
 	
 }

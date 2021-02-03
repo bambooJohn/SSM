@@ -11,6 +11,7 @@
 	<a href="test">测试get</a><br>
 
 	<form action="test" method="post">
+		<input type="text" name="username"/>
 		<input type="submit" value="测试post"/>
 	</form>
 </body>
