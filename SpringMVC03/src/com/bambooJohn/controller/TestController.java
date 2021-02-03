@@ -18,8 +18,8 @@ public class TestController {
 	@RequestMapping("/test")
 	public String test() {
 		
-		return "success";
-		//return "redirect:/index.jsp";
+		//return "success";
+		return "redirect:/index.jsp";
 	} 
 	
 }
