@@ -17,18 +17,18 @@
 			<th>EMAIL</th>
 			<th>GENDER</th>
 			<th>DEPARTMENT</th>
-			<th>OPTION</th>
+			<th>OPTION(<a href="emp">ADD</a>)</th>
 		</tr>
 		<c:forEach items="${emps }" var="emp">
 			<tr>
 				<td>${emp.id }</td>
 				<td>${emp.lastName }</td>
 				<td>${emp.email }</td>
-				<td>${emp.gender }</td>
+				<td>${emp.gender == 0 ? '女' : '男' }</td>
 				<td>${emp.department.departmentName }</td>
 				<td>
-					<a href="">UPDATE</a>
-					<a href="">DELETE</a>
+					<a href="emp">UPDATE</a>
+					<a href="emp">DELETE</a>
 				</td>
 			</tr>
 		</c:forEach>

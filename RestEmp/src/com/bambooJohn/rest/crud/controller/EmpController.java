@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bambooJohn.rest.crud.bean.Department;
 import com.bambooJohn.rest.crud.bean.Employee;
@@ -28,6 +29,20 @@ public class EmpController {
 		map.put("emps", emps);
 		
 		return "list";
+	}
+	
+	@RequestMapping(value="/emp",method=RequestMethod.GET)
+	public String toAdd(Map<String,Object> map) {
+		Collection<Department> depts = departmentDao.getDepartments();
+		map.put("depts", depts);
+		return "add";
+		
+	}
+	
+	@RequestMapping(value="/emp",method=RequestMethod.POST)
+	public String addEmp(Employee employee) {
+		employeeDao.save(employee);
+		return "redirect:/emps";
 	}
 	
 }

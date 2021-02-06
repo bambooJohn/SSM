@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<a href="${pageContext.request.contextPath}/emps">员工信息列表</a>
+	<a href="emps">员工信息列表</a>
 
 </body>
 </html>
