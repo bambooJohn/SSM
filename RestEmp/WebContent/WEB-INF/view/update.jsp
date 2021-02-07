@@ -29,7 +29,9 @@
 				<td>GENDER</td>
 				<td>
 					<input type="radio" name="gender" value="1" checked=${emp.gender == 1 ? 'checked' : ''}>男
-					<input type="radio" name="gender" value="0" checked=${emp.gender == 0 ? 'checked' : ''}>女
+					<input type="radio" name="gender" value="0" checked=${emp.gender == 0 ? 'checked' : ''}>女 
+					<%-- <input type="radio" name="gender" value="1" <c:if test="${emp.gender == 1}">checked="checked"</c:if>/>男
+					<input type="radio" name="gender" value="0" <c:if test="${emp.gender == 0}">checked="checked"</c:if>/>女 --%>
 				</td>
 			</tr>
 			<tr>
@@ -39,6 +41,7 @@
 						<option>-SELECT DEPARMENT-</option>
 						<c:forEach items="${depts }" var="dept">
 							<option value="${dept.id }" ${dept.id==emp.department.id ? 'selected' : ''}>${dept.departmentName }</option>
+							<%-- <option value="${dept.id }" <c:if test="${dept.id==emp.department.id}">selected="selected"</c:if>>${dept.departmentName }</option> --%>
 						</c:forEach>
 					</select>
 				</td>
