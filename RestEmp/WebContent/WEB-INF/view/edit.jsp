@@ -43,8 +43,9 @@
 				<td>
 					<!-- <input type="radio" name="gender" value="1"/>男
 					<input type="radio" name="gender" value="0"/>女 -->
-					<form:radiobutton path="gender" value="1"/>男
-					<form:radiobutton path="gender" value="0"/>女
+					<%-- <form:radiobutton path="gender" value="1"/>男
+					<form:radiobutton path="gender" value="0"/>女 --%>
+					<form:radiobuttons path="gender" items="${genders }"/>
 				</td>
 			</tr>
 			<tr>

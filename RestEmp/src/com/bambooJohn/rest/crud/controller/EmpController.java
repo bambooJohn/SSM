@@ -1,6 +1,7 @@
 package com.bambooJohn.rest.crud.controller;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,10 @@ public class EmpController {
 		map.put("depts", depts);
 		//form标签有自动回显的功能，会在页面中能够默认获取request作用域中command属性的值
 		/*map.put("command", new Employee());*/
+		Map<String, String> genders = new HashMap<String,String>();
+		genders.put("1", "男");
+		genders.put("0", "女");
+		map.put("genders", genders);
 		map.put("emp", new Employee());
 		return "edit";
 		
@@ -54,7 +59,11 @@ public class EmpController {
 		Employee employee = employeeDao.get(id);
 		map.put("emp", employee);
 		Collection<Department> depts = departmentDao.getDepartments();
+		Map<String, String> genders = new HashMap<String,String>();
+		genders.put("1", "男");
+		genders.put("0", "女");
 		map.put("depts", depts);
+		map.put("genders", genders);
 	//	return "update";
 		return "edit";
 	}
