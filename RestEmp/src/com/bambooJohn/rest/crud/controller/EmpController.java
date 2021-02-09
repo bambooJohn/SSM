@@ -36,6 +36,9 @@ public class EmpController {
 	public String toAdd(Map<String,Object> map) {
 		Collection<Department> depts = departmentDao.getDepartments();
 		map.put("depts", depts);
+		//form标签有自动回显的功能，会在页面中能够默认获取request作用域中command属性的值
+		/*map.put("command", new Employee());*/
+		map.put("emp", new Employee());
 		return "add";
 		
 	}
