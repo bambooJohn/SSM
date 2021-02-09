@@ -39,7 +39,7 @@ public class EmpController {
 		//form标签有自动回显的功能，会在页面中能够默认获取request作用域中command属性的值
 		/*map.put("command", new Employee());*/
 		map.put("emp", new Employee());
-		return "add";
+		return "edit";
 		
 	}
 	
@@ -55,7 +55,8 @@ public class EmpController {
 		map.put("emp", employee);
 		Collection<Department> depts = departmentDao.getDepartments();
 		map.put("depts", depts);
-		return "update";
+	//	return "update";
+		return "edit";
 	}
 	
 	@RequestMapping(value="/emp",method=RequestMethod.PUT)
