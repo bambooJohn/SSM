@@ -12,37 +12,38 @@
 <body>
 	<!-- modelAttribute自定义回显对象的属性名 -->
 	<form:form action="${pageContext.request.contextPath}/emp" method="post" modelAttribute="emp">
-		
-		<c:if test="${!empty emp.id }">
-			<form:hidden path="id" value="${id }"/>
+		<c:if test="${empty emp.id }" var="flag"></c:if>
+		<c:if test="${!flag}">
+			<form:hidden path="id"/>
+			<%-- <input name="id" value="${emp.id }"/> --%>
 			<input type="hidden" name="_method" value="PUT"/>
 		</c:if>
 		
 		<table>
 			<tr>
 				<!-- <th colspan="2">添加员工信息</th> -->
-				<c:if test="${!empty emp.id }">
-					<th colspan="2">编辑员工信息</th>
+				<c:if test="${!flag}">
+					<th colspan="2">修改员工信息</th>
 				</c:if>
-				<c:if test="${empty emp.id }">
+				<c:if test="${flag}">
 					<th colspan="2">添加员工信息</th>
 				</c:if>
 			</tr>
 			<tr>
 				<td>LASTNAME</td>
-				<!-- <td><input name="lastName" type="text"/></td> -->
+				<%-- <td><input name="lastName" type="text" value="${emp.lastName }"/></td> --%>
 				<td><form:input path="lastName"/></td>
 			</tr>
 			<tr>
 				<td>EMAIL</td>
-				<!-- <td><input name="email" type="text"/></td> -->
+				<%-- <td><input name="email" type="text" value="${emp.email }"/></td> --%>
 				<td><form:input path="email"/></td>
 			</tr>
 			<tr>
 				<td>GENDER</td>
 				<td>
-					<!-- <input type="radio" name="gender" value="1"/>男
-					<input type="radio" name="gender" value="0"/>女 -->
+					<%-- <input type="radio" name="gender" value="1" checked=${emp.gender == 1 ? 'checked' : ''}/>男
+					<input type="radio" name="gender" value="0" checked=${emp.gender == 0 ? 'checked' : ''}/>女 --%>
 					<%-- <form:radiobutton path="gender" value="1"/>男
 					<form:radiobutton path="gender" value="0"/>女 --%>
 					<form:radiobuttons path="gender" items="${genders }"/>
@@ -54,7 +55,7 @@
 					<%-- <select name="department.id">
 						<option>-SELECT DEPARMENT-</option>
 						<c:forEach items="${depts }" var="dept">
-							<option value="${dept.id }">${dept.departmentName }</option>
+							<option value="${dept.id }" ${dept.id==emp.department.id ? 'selected' : ''}>${dept.departmentName }</option>
 						</c:forEach>
 					</select> --%>
 					<!-- 
