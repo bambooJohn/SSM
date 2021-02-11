@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/index_like.css"></link>
 <script type="text/javascript" src="${pageContext.servletContext.contextPath}/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 	$(function(){
@@ -21,11 +22,29 @@
 						{"id":1004,"lastName":"E-DD","email":"dd@163.com","gender":0,"department":{"id":104,"departmentName":"D-DD"}},
 						{"id":1005,"lastName":"E-EE","email":"ee@163.com","gender":1,"department":{"id":105,"departmentName":"D-EE"}}]
 					*/
-					for(var i in msg){
+					/* for(var i in msg){
 						var emp = msg[i];
 						alert("id:" + emp.id + ",lastName:" + emp.lastName + ",email:" + emp.email + ",gender:" + emp.gender + ",department:" +  emp.department.departmentName);
-					} 
+					} */ 
 					//alert(msg)
+					//方式一
+					/* var tb = "<table>";
+					tb = tb + "<tr><th>id</th><th>lastName</th><th>email</th><th>gender</th><th>department</th></tr>";
+					for(var i in msg){
+						var emp = msg[i];
+						tb = tb + "<tr><td>" + emp.id + "</td><td>" + emp.lastName + "</td><td>" + emp.email + "</td><td>" + emp.gender + "</td><td>" + emp.department.departmentName + "</td></tr>";
+					}
+					tb = tb + "</table>";
+					$("body").append(tb); */
+					
+					//方式二
+					$("body").append("<table></table>");
+					$("table").append("<tr><th>id</th><th>lastName</th><th>email</th><th>gender</th><th>department</th></tr>");
+					for(var i in msg){
+						var emp = msg[i];
+						$("table").append("<tr><td>" + emp.id + "</td><td>" + emp.lastName + "</td><td>" + emp.email + "</td><td>" + emp.gender + "</td><td>" + emp.department.departmentName + "</td></tr>");
+					}
+				
 				}
 			});
 		});
