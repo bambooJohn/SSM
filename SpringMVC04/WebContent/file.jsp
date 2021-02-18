@@ -10,5 +10,13 @@
 
 	<a href="down">下载图片</a>
 
+	<form action="up" method="post" enctype="multipart/form-data">
+		文件1：<input type="file" name="uploadFile"/>
+		文件2：<input type="file" name="uploadFile"/>
+		文件3：<input type="file" name="uploadFile"/>
+		描述：<input type="text" name="desc"/>
+		<input type="submit" value="上传"/>
+	</form>
+
 </body>
 </html>
