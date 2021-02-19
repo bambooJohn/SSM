@@ -26,9 +26,16 @@
 	<mvc:interceptors>
 		<!-- 默认拦截所有请求 -->
 		<!-- 法一 -->
-		<!-- <bean class="com.bambooJohn.interceptor.FirstInterceptor"></bean> -->
+		<bean class="com.bambooJohn.interceptor.FirstInterceptor"></bean>
+		<bean class="com.bambooJohn.interceptor.SecondInterceptor"></bean>
 		<!-- 法二：这时需要在FirstInterceptor上添加注解@Component -->
-		<ref bean="firstInterceptor"/>
+		<!-- <ref bean="firstInterceptor"/> -->
+		<!-- 自定义拦截方式 -->
+		<!-- <mvc:interceptor>
+			<bean></bean>
+			<mvc:mapping path=""/>
+			<mvc:exclude-mapping path=""/>
+		</mvc:interceptor> -->
 	</mvc:interceptors>
 
 </beans>
