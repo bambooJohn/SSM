@@ -23,4 +23,12 @@
 		<property name="maxUploadSize" value="88888888"></property>
 	</bean>
 
+	<mvc:interceptors>
+		<!-- 默认拦截所有请求 -->
+		<!-- 法一 -->
+		<!-- <bean class="com.bambooJohn.interceptor.FirstInterceptor"></bean> -->
+		<!-- 法二：这时需要在FirstInterceptor上添加注解@Component -->
+		<ref bean="firstInterceptor"/>
+	</mvc:interceptors>
+
 </beans>
