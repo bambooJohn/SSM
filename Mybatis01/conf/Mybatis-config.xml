@@ -19,6 +19,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
 	
+	<typeAliases>
+		<!-- 
+			为类型设值类型别名
+			type:Java 类型，若只设置type，默认的别名就是类型，且不区分大小写
+		 -->
+		<!-- <typeAlias type="com.bambooJohn.bean.User" alias="user"/> -->
+		<package name="com.bambooJohn.bean"/> 
+	</typeAliases> 
+	
 	<!-- 
 		<environments>:设置连接数据库环境
 		default:设置默认使用的数据库环境

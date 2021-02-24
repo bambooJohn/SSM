@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		resultType:结果类型，即实体类的全限定名
 	 -->
 	
-	<select id="getUserByUid" resultType="com.bambooJohn.bean.User">
+	<select id="getUserByUid" resultType="user">
 		select uid,user_name,password,age,sex from user where uid = #{id}
 	</select>
 </mapper>
