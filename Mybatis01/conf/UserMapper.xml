@@ -11,6 +11,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 -->
 	
 	<select id="getUserByUid" resultType="com.bambooJohn.bean.User">
-		select uid,user_name as userName,password,age,sex from user where uid = #{id}
+		select uid,user_name,password,age,sex from user where uid = #{id}
 	</select>
 </mapper>
