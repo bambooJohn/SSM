@@ -23,4 +23,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into emp values(null,'${ename}',${age},'${sex}')
 	</insert>
 	
+	<!-- 
+	不同的参数类型，${}和#{}的不同取值方式：
+	1、当传输参数为单个String或基本数据类型和其包装类
+	#{}：可以以任意的名字获取参数值
+	${}:只能以${value}或${_parameter}获取
+	2、当传输参数为JavaBean时
+	#{}和${}都可以通过属性名直接获属性值，但是要注意${}的单引号问题
+	3、当传输多个参数时，mybatis会默认将这些参数放在map集合中
+	两种方式：
+	（1）键为0,1,2,3...N-1，以参数为值
+	（2）键为param1,param2,param3...paramN，以参数为值
+	#{}:#{0}、#{1};#{param1}、#{param2}
+	${}:${param1}、${param2}，但是要注意${}的单引号问题
+	4、当传输Map参数时
+	#{}和${}都可以通过键的名字直接获值，但是要注意${}的单引号问题
+	 -->
+	
+	<select id="getEmpByEid" resultType="Emp">
+		<!-- select eid,ename,age,sex from emp where eid = ${eid} -->
+		<!-- select eid,ename,age,sex from emp where eid = '${value}' -->
+		select eid,ename,age,sex from emp where eid = '${_parameter}'
+	</select>
+	
+	<select id="getEmpByEidAndEname" resultType="Emp">
+		<!-- select eid,ename,age,sex from emp where eid = #{0} and ename = #{1} -->
+		<!-- select eid,ename,age,sex from emp where eid = #{param1} and ename = #{param2} -->
+		select eid,ename,age,sex from emp where eid = ${param1} and ename = '${param2}'
+	</select>
+	
+	<select id="getEmpByMap" resultType="Emp">
+		select eid,ename,age,sex from emp where eid = ${eid} and ename = '${ename}'
+	</select>
+	
 </mapper>
