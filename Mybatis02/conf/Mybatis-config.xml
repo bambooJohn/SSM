@@ -48,7 +48,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<!-- 引入映射文件 -->
 	<mappers>
-		<mapper resource="EmpMapper.xml" />
-		<mapper resource="DeptMapper.xml" />
+		<package name="com.bambooJohn.mapper"/>
 	</mappers>
 </configuration>

@@ -28,12 +28,12 @@ public class TestEmp {
 		Emp emp = empMapper.getEmpByEid("1");
 		System.out.println(emp);
 		
-		empMapper.addEmp(new Emp(null, "aa", 23, "男"));
+		//empMapper.addEmp(new Emp(null, "aa", 23, "男"));
 	
 		//empMapper.deleteEmp("8"); //无效
 		//sqlSession.commit();
 		
-		empMapper.updateEmp(new Emp(1, "王二", 23, "男"));
+		//empMapper.updateEmp(new Emp(1, "王二", 23, "男"));
 		
 		List<Emp> emps = empMapper.getAllEmps();
 		System.out.println(emps);
