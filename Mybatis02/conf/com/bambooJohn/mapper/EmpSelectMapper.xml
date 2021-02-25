@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bambooJohn.mapper.EmpSelectMapper">
+	
+	<!-- 
+		<select>:定义查询语句
+		id:设置SQL语句的唯一标示
+		resultType:结果类型，即实体类的全限定名
+	 -->
+	
+	<select id="selectEmpByEid" resultType="emp">
+		select eid,ename,age,sex from emp where eid = #{eid}
+	</select>
+	
+	
+	<select id="getCount" resultType="Integer">
+		select count(eid) from emp
+	</select>
+	
+	<select id="getEmpMapByEid" resultType="java.util.Map">
+		select eid,ename,age,sex from emp where eid = #{eid}
+	</select>
+	
+	<select id="getAllEmpMap" resultType="Emp">
+		select eid,ename,age,sex from emp
+	</select>
+	
+</mapper>

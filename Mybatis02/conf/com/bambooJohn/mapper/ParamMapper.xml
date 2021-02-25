@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bambooJohn.mapper.ParamMapper">
+	
+	<!-- 
+		mybatis获取参数值的两种方式：
+		${}:insert into emp values(null,测试,23,女)
+		Statement:必须使用字符串拼接的方式操作SQL，一定要注意单引号问题
+		#{}:insert into emp values(null,?,?,?)
+		PreparedStatement:可以使用通配符操作SQL，因为在为String赋值时，可以自动加单引号，因此不需要注意单引号问题
+		使用建议：建议使用#{}，在特殊情况下，需要使用${}，例如模糊查询和批量删除
+	 -->
+	
+	<!-- 
+		useGeneratedKeys:可以使用自动生成的主键
+		keyProperty:将自动生成的主键赋值给传递过来的参数的哪一个属性
+	 -->
+	
+	<insert id="insertEmp" useGeneratedKeys="true" keyProperty="eid">
+		<!-- insert into emp values(null,#{ename},#{age},#{sex}) -->
+		insert into emp values(null,'${ename}',${age},'${sex}')
+	</insert>
+	
+</mapper>
