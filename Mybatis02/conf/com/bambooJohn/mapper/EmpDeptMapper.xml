@@ -4,13 +4,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bambooJohn.mapper.EmpDeptMapper">
 	
-	<resultMap type="Emp" id="empMap">
+	<!-- <resultMap type="Emp" id="empMap">
 		<id column="eid" property="eid"/>
 		<result column="ename" property="ename"/>
 		<result column="age" property="age"/>
 		<result column="sex" property="sex"/>
 		<result column="did" property="dept.did"/>
 		<result column="dname" property="dept.dname"/>
+	</resultMap> -->
+	<!-- 
+		<resultMap>:自定义映射，处理复杂的表关系
+		<id column="eid" property="eid"/>
+		<id>:设置主键的映射关系，column设置字段名，property设置属性名
+		<result column="ename" property="ename"/>
+		<result>:设置非主键的映射关系，column设置字段名，property设置属性名
+	 -->
+	
+	<resultMap type="Emp" id="empMap">
+		<id column="eid" property="eid"/>
+		<result column="ename" property="ename"/>
+		<result column="age" property="age"/>
+		<result column="sex" property="sex"/>
+		<association property="dept" javaType="Dept">
+			<id column="did" property="did"/>
+			<result column="dname" property="dname"/>
+		</association>
 	</resultMap>
 	
 	<!-- List<Emp> getAllEmps(); -->
