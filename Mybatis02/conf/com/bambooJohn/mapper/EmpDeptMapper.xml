@@ -90,4 +90,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE d.did=#{did}
 	</select>
 	
+	
+	
+	
+	<select id="getEmpsByDid" resultType="emp">
+		SELECT 
+		eid,ename,age,sex,did
+		FROM
+		emp
+		WHERE did=#{did}
+	</select>
+	
+	<resultMap type="Dept" id="deptStepMap">
+		<id column="did" property="did"/>
+		<result column="dname" property="dname"/>
+		<!-- 
+			<collection>:处理一对多和多对多的关系
+			ofType：指集合中的类型，不需要指定javaType
+		 -->
+		<collection property="emps" select="com.bambooJohn.mapper.EmpDeptMapper.getEmpsByDid" column="did"></collection>
+	</resultMap>
+	
+	<select id="getDeptByStep" resultMap="deptStepMap">
+		SELECT
+		did,dname
+		FROM
+		dept
+		WHERE did=#{did}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

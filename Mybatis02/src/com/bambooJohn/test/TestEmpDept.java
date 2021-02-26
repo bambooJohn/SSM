@@ -32,8 +32,12 @@ public class TestEmpDept {
 		System.out.println(empByStep.getEname());
 		System.out.println("===============");
 		System.out.println(empByStep.getDept());*/
-		Dept deptByDid = empDeptMapper.getDeptByDid("1");
-		System.out.println(deptByDid);
+		/*Dept deptByDid = empDeptMapper.getDeptByDid("1");
+		System.out.println(deptByDid);*/
+		Dept deptByStep = empDeptMapper.getDeptByStep("1");
+		System.out.println(deptByStep.getDname());
+		System.out.println("===============");
+		System.out.println(deptByStep);
 	}
 
 }
