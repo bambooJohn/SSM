@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
+import com.bambooJohn.bean.Dept;
 import com.bambooJohn.bean.Emp;
 import com.bambooJohn.mapper.EmpDeptMapper;
 import com.bambooJohn.mapper.ParamMapper;
@@ -27,10 +28,12 @@ public class TestEmpDept {
 		EmpDeptMapper empDeptMapper = sqlSession.getMapper(EmpDeptMapper.class);
 		/*List<Emp> emps = empDeptMapper.getAllEmps();
 		System.out.println(emps);*/
-		Emp empByStep = empDeptMapper.getEmpByStep("2");
+		/*Emp empByStep = empDeptMapper.getEmpByStep("2");
 		System.out.println(empByStep.getEname());
 		System.out.println("===============");
-		System.out.println(empByStep.getDept());
+		System.out.println(empByStep.getDept());*/
+		Dept deptByDid = empDeptMapper.getDeptByDid("1");
+		System.out.println(deptByDid);
 	}
 
 }

@@ -1,11 +1,14 @@
 package com.bambooJohn.bean;
 
+import java.util.List;
+
 public class Dept {
 
 	private Integer did;
 	
 	private String dname;
 
+	private List<Emp> emps;
 	
 	public Dept() {
 		super();
@@ -17,6 +20,18 @@ public class Dept {
 		super();
 		this.did = did;
 		this.dname = dname;
+	}
+
+
+	
+	
+	public List<Emp> getEmps() {
+		return emps;
+	}
+
+
+	public void setEmps(List<Emp> emps) {
+		this.emps = emps;
 	}
 
 
@@ -42,8 +57,14 @@ public class Dept {
 
 	@Override
 	public String toString() {
-		return "Dept [did=" + did + ", dname=" + dname + "]";
+		return "Dept [did=" + did + ", dname=" + dname + ", emps=" + emps + "]";
 	}
+
+
+	/*@Override
+	public String toString() {
+		return "Dept [did=" + did + ", dname=" + dname + "]";
+	}*/
 	
 	
 }

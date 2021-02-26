@@ -65,5 +65,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<resultMap type="Dept" id="deptMap">
+		<id column="did" property="did"/>
+		<result column="dname" property="dname"/>
+		<!-- 
+			<collection>:处理一对多和多对多的关系
+			ofType：指集合中的类型，不需要指定javaType
+		 -->
+		<collection property="emps" ofType="emp">
+			<id column="eid" property="eid"/>
+			<result column="ename" property="ename"/>
+			<result column="age" property="age"/>
+			<result column="sex" property="sex"/>
+		</collection>
+	</resultMap>
+	<!-- Dept getDeptByDid(String did) -->
+	<select id="getDeptByDid" resultMap="deptMap">
+		SELECT
+		d.did,d.dname,e.eid,e.ename,e.age,e.sex
+		FROM
+		dept d
+		LEFT JOIN emp e
+		ON d.did = e.did 
+		WHERE d.did=#{did}
+	</select>
 	
 </mapper>
