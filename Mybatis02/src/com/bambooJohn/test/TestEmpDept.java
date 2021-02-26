@@ -25,8 +25,12 @@ public class TestEmpDept {
 		//SqlSession sqlSession = sqlSessionFactory.openSession(); // 需要手动处理事务
 		SqlSession sqlSession = sqlSessionFactory.openSession(true); // 自动处理事务
 		EmpDeptMapper empDeptMapper = sqlSession.getMapper(EmpDeptMapper.class);
-		List<Emp> emps = empDeptMapper.getAllEmps();
-		System.out.println(emps);
+		/*List<Emp> emps = empDeptMapper.getAllEmps();
+		System.out.println(emps);*/
+		Emp empByStep = empDeptMapper.getEmpByStep("2");
+		System.out.println(empByStep.getEname());
+		System.out.println("===============");
+		System.out.println(empByStep.getDept());
 	}
 
 }

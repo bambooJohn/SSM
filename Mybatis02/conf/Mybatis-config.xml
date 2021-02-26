@@ -6,6 +6,15 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<properties resource="jdbc.properties"></properties>
 	
+	<settings>
+		<!-- 将下划线映射成驼峰，user_name映射为userName -->
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<!-- 开启延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 是否查询所有数据 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+	
 	<typeAliases>
 		<!-- 
 			为类型设值类型别名

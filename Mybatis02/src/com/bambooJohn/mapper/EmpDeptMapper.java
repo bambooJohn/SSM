@@ -8,4 +8,6 @@ public interface EmpDeptMapper {
 
 	List<Emp> getAllEmps();
 	
+	Emp getEmpByStep(String eid);
+	
 }

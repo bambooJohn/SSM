@@ -82,8 +82,16 @@ public class Emp {
 
 	@Override
 	public String toString() {
-		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", sex=" + sex + "]";
+		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", sex=" + sex + ", dept=" + dept + "]";
 	}
+
+
+	/*@Override
+	public String toString() {
+		return "Emp [eid=" + eid + ", ename=" + ename + ", age=" + age + ", sex=" + sex + "]";
+	}*/
+	
+	
 	
 	
 }
