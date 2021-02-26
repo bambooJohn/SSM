@@ -9,6 +9,8 @@ public class Emp {
 	private Integer age;
 	
 	private String sex;
+	
+	private Dept dept;
 
 	
 	public Emp() {
@@ -23,6 +25,18 @@ public class Emp {
 		this.ename = ename;
 		this.age = age;
 		this.sex = sex;
+	}
+
+	
+	
+	
+	public Dept getDept() {
+		return dept;
+	}
+
+
+	public void setDept(Dept dept) {
+		this.dept = dept;
 	}
 
 

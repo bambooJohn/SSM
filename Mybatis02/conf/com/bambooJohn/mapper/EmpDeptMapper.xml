@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bambooJohn.mapper.EmpDeptMapper">
+	
+	<resultMap type="Emp" id="empMap">
+		<id column="eid" property="eid"/>
+		<result column="ename" property="ename"/>
+		<result column="age" property="age"/>
+		<result column="sex" property="sex"/>
+		<result column="did" property="dept.did"/>
+		<result column="dname" property="dept.dname"/>
+	</resultMap>
+	
+	<!-- List<Emp> getAllEmps(); -->
+	<select id="getAllEmps" resultMap="empMap">
+		SELECT 
+		e.eid,e.ename,e.age,e.sex,e.did,d.dname
+		FROM
+		emp e
+		LEFT JOIN dept d
+		ON e.did=d.did
+	</select>
+	
+</mapper>

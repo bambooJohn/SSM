@@ -56,4 +56,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select eid,ename,age,sex from emp where eid = ${eid} and ename = '${ename}'
 	</select>
 	
+	<!-- 
+	5、命名参数
+	可以通过@Param("key")为map集合指定键的名字
+	Emp getEmpByParam(@Param("eid") String eid,@Param("ename") String ename);
+	#{}和${}都可以通过键的名字直接获值，但是要注意${}的单引号问题
+	6、当传输参数为List或Array，mybatis会将List或Array放在map中
+	List以list为键，Array以array为键
+	
+	 -->
+	<select id="getEmpByParam" resultType="Emp">
+		select eid,ename,age,sex from emp where eid = #{eid} and ename = '${ename}'
+	</select>
+	
 </mapper>
