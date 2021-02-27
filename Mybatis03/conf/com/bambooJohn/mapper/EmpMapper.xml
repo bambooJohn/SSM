@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bambooJohn.mapper.EmpMapper">
+	
+	<!-- List<Emp> getEmpListByMoreTJ(Emp emp) -->
+	<select id="getEmpListByMoreTJ" resultType="emp">
+		select 
+		eid,ename,age,sex
+		from
+		emp
+		where 1 = 1
+		<if test = "eid != null">
+			and eid = #{eid}
+		</if>
+		<if test = "ename != null and ename != ''">
+			and ename = #{ename}
+		</if>
+		<if test = "age != null">
+			and age = #{age}
+		</if>
+		<if test = "sex == 1 or sex == 0">
+			and sex= #{sex}
+		</if>
+		
+	</select>
+	
+</mapper>
