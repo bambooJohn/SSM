@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 -->
 	
 	<!-- List<Emp> getEmpListByMoreTJ(Emp emp) -->
-	<select id="getEmpListByMoreTJ" resultType="emp">
+	<select id="getEmpListByMoreTJ1" resultType="emp">
 		select 
 		eid,ename,age,sex
 		from
@@ -29,6 +29,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				and sex= #{sex}
 			</if>
 		</where>
+		
+	</select>
+	
+	<!-- 
+		<trim prefix="" suffix="" prefixOverrides="" suffixOverrides="">:截取并拼接
+	 	prefix:在操作的SQL语句前加入某些内容
+	 	suffix:在操作的SQL语句后加入某些内容
+	 	prefixOverrides:把操作的SQL语句前的某些内容去掉
+	 	suffixOverrides:把操作的SQL语句后的某些内容去掉
+	 
+	 -->
+	<!-- List<Emp> getEmpListByMoreTJ(Emp emp) -->
+	<select id="getEmpListByMoreTJ" resultType="emp">
+		select 
+		eid,ename,age,sex
+		from
+		emp
+		<trim prefix="where" suffixOverrides="and|or">
+			<if test = "eid != null">
+				eid = #{eid} and
+			</if>
+			<if test = "ename != null and ename != ''">
+				ename = #{ename} and
+			</if>
+			<if test = "age != null">
+				age = #{age} or
+			</if>
+			<if test = "sex == 1 or sex == 0">
+				sex= #{sex}
+			</if>
+		</trim>
 		
 	</select>
 	
