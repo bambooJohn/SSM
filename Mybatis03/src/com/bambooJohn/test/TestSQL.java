@@ -23,9 +23,9 @@ class TestSQL {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
 		Emp emp = new Emp();
-		//emp.setEid(1);
+		emp.setEid(1);
 		emp.setEname("李三");
-		emp.setAge(23);
+		//emp.setAge(23);
 		emp.setSex("1");
 		List<Emp> empListByMoreTJ = empMapper.getEmpListByMoreTJ(emp);
 		System.out.println(empListByMoreTJ);
