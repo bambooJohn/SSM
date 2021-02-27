@@ -18,6 +18,19 @@ import com.bambooJohn.mapper.EmpMapper;
 class TestSQL {
 
 	@Test
+	void testDelete() throws IOException {
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
+		
+		String eids = "1,2,6";
+		
+		empMapper.deleteEmps(eids);
+		
+	}
+	
+	
+	@Test
 	void testChoose() throws IOException {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
