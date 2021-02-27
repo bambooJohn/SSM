@@ -63,4 +63,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 	</select>
 	
+	
+	<!-- 
+		<choose>:选择某一个when或otherwise拼接SQL
+			<when test=""></when>:通过test表达式拼接SQL
+			。
+			。
+			。
+			<otherwise></otherwise>：当when都不符合条件，就会选择otherwise拼接SQL
+		</choose>
+	 -->
+	<!-- void insertEmp(Emp emp); -->
+	<insert id="insertEmp">
+		insert into emp(eid,ename,age,sex) values(
+			null,
+			#{ename},
+			#{age},
+			<choose>
+				<when test="sex == 1">'男'</when>
+				<when test="sex == 0">'女'</when>
+				<otherwise>'不详'</otherwise>
+			</choose>
+		)
+		
+	</insert>
+	
+	
+	
 </mapper>

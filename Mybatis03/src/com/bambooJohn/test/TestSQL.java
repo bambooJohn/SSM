@@ -18,6 +18,20 @@ import com.bambooJohn.mapper.EmpMapper;
 class TestSQL {
 
 	@Test
+	void testChoose() throws IOException {
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
+		Emp emp = new Emp();
+		//emp.setEid(1);
+		emp.setEname("李三三");
+		emp.setAge(23);
+		emp.setSex("0");
+		empMapper.insertEmp(emp);
+		
+	}
+	
+	@Test
 	void test() throws IOException {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
