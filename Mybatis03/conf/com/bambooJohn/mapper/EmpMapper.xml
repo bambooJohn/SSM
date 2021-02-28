@@ -117,4 +117,39 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach> -->
 	</delete>
 	
+	<!-- 
+		delete:
+			delete from emp where eid in ();
+			delete from emp where eid = 1 or eid = 2 or eid = 3
+		select:
+			select * from emp where eid in ();
+			select * from emp where eid = 1 or eid = 2 or eid = 3;
+		update:
+			把每条数据修改为相同内容
+			update emp set ... where eid in ();
+			update emp set ... where eid = 1 or eid = 2 or eid = 3;
+			把每条数据修改为对应内容,注意：必须在链接地址(url)后添加参数?allowMultiQueries=true
+			update emp set ... where eid = 1;
+			update emp set ... where eid = 2;
+			update emp set ... where eid = 3;
+		insert:
+			insert into emp values(),(),();
+		
+	 -->
+	
+	<!-- void insertMoreByArray(@Param("emps")Emp[] emps); -->
+	<insert id="insertMoreByArray">
+		insert into emp values
+		<foreach collection="emps" item="emp" separator=",">
+			(null,#{emp.ename},#{emp.age},#{emp.sex},1)
+		</foreach>
+	</insert>
+	
+	<!-- void updateMoreByArray(@Param("emps")Emp[] emps); -->
+	<update id="updateMoreByArray">
+		<foreach collection="emps" item="emp">
+			update emp set ename=#{emp.ename},age=#{emp.age},sex=#{emp.sex} where eid=#{emp.eid};
+		</foreach>
+	</update>
+	
 </mapper>

@@ -25,11 +25,24 @@ class TestSQL {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
 		
-		List<Integer> list = new ArrayList<Integer>();
+		Emp[] emps = new Emp[3];
+		/*emps[0] = new Emp(null,"a",23,"男");
+		emps[1] = new Emp(null,"aa",23,"男");
+		emps[2] = new Emp(null,"aaa",23,"男");
+		
+		empMapper.insertMoreByArray(emps);*/
+		
+		emps[0] = new Emp(21,"a1",23,"男");
+		emps[1] = new Emp(22,"aa1",23,"男");
+		emps[2] = new Emp(23,"aaa1",23,"男");
+		
+		empMapper.updateMoreByArray(emps);
+		
+		/*List<Integer> list = new ArrayList<Integer>();
 		list.add(1);
 		list.add(2);
 		list.add(3);
-		empMapper.deleteMoreByList(list);
+		empMapper.deleteMoreByList(list);*/
 		
 	}
 	
