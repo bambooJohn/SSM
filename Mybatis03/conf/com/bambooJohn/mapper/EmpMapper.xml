@@ -5,16 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.bambooJohn.mapper.EmpMapper">
 	
 	<!-- 
+		<sql id=""></sql>:设置一段SQL片段，即公共SQL，可以被当作映射文件中的所有SQL语句所访问
+		<include refid="empColumns"></include>:访问某个SQL片段
+	 -->
+	<sql id="empColumns">
+		select 
+		eid,ename,age,sex
+		from
+		emp
+	</sql>
+	
+	<!-- 
 		<if test = ""></if>:通过test表达式，拼接SQL
 		<where>:添加where关键字，同时去掉多余的and
 	 -->
 	
 	<!-- List<Emp> getEmpListByMoreTJ(Emp emp) -->
 	<select id="getEmpListByMoreTJ1" resultType="emp">
-		select 
-		eid,ename,age,sex
-		from
-		emp
+		<include refid="empColumns"></include>
 		<where>
 			<if test = "eid != null">
 				and eid = #{eid}
