@@ -23,4 +23,6 @@ public interface EmpMapper {
 	
 	void updateMoreByArray(@Param("emps")Emp[] emps);
 	
+	Emp getEmpByEid(String eid);
+	
 }
