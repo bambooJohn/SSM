@@ -94,4 +94,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	
+	<!-- 
+		<foreach collection="" item="" open="" separator="" close=""></foreach>
+		对一个数组或集合进行遍历
+		collection:指定要遍历的集合或数组
+		item:设置别名
+		close:设置循环体的结束内容
+		open:设置循环体的开始内容
+		seperator:设置每一个循环之间的分隔符
+		index:若遍历的是list，index代表下标；若遍历的是map，index代表键
+	 -->
+	<!-- void deleteMoreByList(List<Integer> eids); -->
+	<delete id="deleteMoreByList">
+		delete from emp where eid in 
+		<foreach collection="list" item="eid" open="(" separator="," close=")">
+			#{eid}
+		</foreach>
+		
+		<!-- delete from emp where  
+		<foreach collection="list" item="eid" separator="or">
+			eid = #{eid}
+		</foreach> -->
+	</delete>
+	
 </mapper>

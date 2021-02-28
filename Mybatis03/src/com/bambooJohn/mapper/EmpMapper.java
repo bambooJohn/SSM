@@ -14,4 +14,6 @@ public interface EmpMapper {
 	//通过eid组成的字符串实现批量删除
 	void deleteEmps(String eids);
 	
+	void deleteMoreByList(List<Integer> eids);
+	
 }

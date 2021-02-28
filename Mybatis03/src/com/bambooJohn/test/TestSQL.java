@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -17,6 +18,21 @@ import com.bambooJohn.mapper.EmpMapper;
 
 class TestSQL {
 
+	
+	@Test
+	void testForeach() throws IOException {
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		EmpMapper empMapper = sqlSession.getMapper(EmpMapper.class);
+		
+		List<Integer> list = new ArrayList<Integer>();
+		list.add(1);
+		list.add(2);
+		list.add(3);
+		empMapper.deleteMoreByList(list);
+		
+	}
+	
 	@Test
 	void testDelete() throws IOException {
 		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
