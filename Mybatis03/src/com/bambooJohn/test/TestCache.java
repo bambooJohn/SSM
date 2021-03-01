@@ -36,11 +36,19 @@ class TestCache {
 		sqlSession1.commit();
 		/*SqlSession sqlSession2 = sqlSessionFactory.openSession(true);
 		EmpMapper empMapper2 = sqlSession2.getMapper(EmpMapper.class);*/
-		Emp empByEid2 = empMapper.getEmpByEid("17");
+		EmpMapper empMapper2 = sqlSession1.getMapper(EmpMapper.class);
+		Emp empByEid2 = empMapper2.getEmpByEid("21");
 		System.out.println(empByEid2);
 		System.out.println("================");
-		Emp empByEid3 = empMapper.getEmpByEid("17");
+		sqlSession1.commit();
+		EmpMapper empMapper3 = sqlSession1.getMapper(EmpMapper.class);
+		Emp empByEid3 = empMapper3.getEmpByEid("22");
 		System.out.println(empByEid3);
+		System.out.println("================");
+		sqlSession1.commit();
+		EmpMapper empMapper4 = sqlSession1.getMapper(EmpMapper.class);
+		Emp empByEid4 = empMapper4.getEmpByEid("23");
+		System.out.println(empByEid4);
 	}
 	
 	@Test

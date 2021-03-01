@@ -4,8 +4,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bambooJohn.mapper.EmpMapper">
 	
-	<cache/>
-	
+	<!-- <cache/> -->
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 	<!-- 
 		<sql id=""></sql>:设置一段SQL片段，即公共SQL，可以被当作映射文件中的所有SQL语句所访问
 		<include refid="empColumns"></include>:访问某个SQL片段
