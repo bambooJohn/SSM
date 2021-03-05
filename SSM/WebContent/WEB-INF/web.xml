@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>SSM</display-name>
   
-  
+  	<!-- spring编码过滤器 -->
 	<filter>
 		<filter-name>CharacterEncodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -16,7 +16,8 @@
   		<url-pattern>/*</url-pattern>
   	</filter-mapping>
   
-  <filter>
+  	<!-- REST请求方式处理 -->
+  	<filter>
 		<filter-name>HiddenHttpMethodFilter</filter-name>
 		<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
 	</filter>
@@ -25,7 +26,7 @@
   		<url-pattern>/*</url-pattern>
   	</filter-mapping>
   
-  
+  <!-- springMVC核心控制器DispatcherServlet -->
   <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
@@ -43,13 +44,14 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
   
-  
+  	<!-- 自定义spring配置文件的位置和名称 -->
   	<!-- needed for ContextLoaderListener -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:spring.xml</param-value>
 	</context-param>
 
+	<!-- 配置spring监听器 -->
 	<!-- Bootstraps the root web application context before servlet initialization -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

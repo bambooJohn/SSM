@@ -4,7 +4,52 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.bambooJohn.ssm.mapper.EmpMapper">
 	
+	<resultMap id="empMap" type="emp">
+		<id column="eid" property="eid"/>
+		<result column="ename" property="ename"/>
+		<result column="age" property="age"/>
+		<result column="sex" property="sex"/>
+		<association property="dept" javaType="Dept">
+			<id column="did" property="did"/>
+			<result column="dname" property="dname"/>
+		</association>
+	</resultMap>
+	
+	<!-- List<Emp> getAllEmps();	 -->
+	<select id="getAllEmps" resultMap="empMap">
+		SELECT 
+		e.eid,e.ename,e.age,e.sex,e.did,d.dname
+		FROM
+		emp e
+		LEFT JOIN dept d
+		ON e.did=d.did
+	</select>
 	
 	
+	<!-- Emp getEmpByEid(String eid); -->
+	<select id="getEmpByEid" resultMap="empMap">
+		SELECT 
+		e.eid,e.ename,e.age,e.sex,d.did,d.dname
+		FROM
+		emp e
+		LEFT JOIN dept d
+		ON e.did=d.did
+		where e.eid=#{eid}
+	</select>
+	
+	<!-- List<Dept> getAllDepts() -->
+	<select id="getAllDepts" resultType="dept">
+		select
+		did,dname
+		from
+		dept
+	</select>
+	
+	<!-- void updateEmp(Emp emp); -->
+	<update id="updateEmp">
+		update emp
+		set ename=#{ename},age=#{age},sex=#{sex},did=#{dept.did}
+		where eid=#{eid}
+	</update>
 	
 </mapper>
